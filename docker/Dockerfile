@@ -7,6 +7,8 @@ FROM node:16-alpine
 WORKDIR /usr/src/app
 COPY --from=build /tmp/dist ./dist
 COPY --from=build /tmp/docker/run.sh ./run.sh
+COPY --from=build /tmp/docker/env_secrets_expand.sh ./env_secrets_expand.sh
+COPY --from=build /tmp/docker/entrypoint.sh ./entrypoint.sh
 COPY --from=build /tmp/package.json ./package.json
 COPY --from=build /tmp/package-lock.json ./package-lock.json
 RUN apk add --no-cache jq \
