@@ -16,4 +16,4 @@ RUN apk add --no-cache jq \
 RUN apk add --no-cache bash
 EXPOSE 3000
 VOLUME ["/data"]
-CMD [ "/usr/src/app/run.sh" ]
+ENTRYPOINT [ "/usr/src/app/entrypoint.sh" ]
